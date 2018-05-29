@@ -24,6 +24,15 @@ describe('Alert', () => {
     expect(vm.$el.classList.contains('el-alert--success')).to.true
   })
 
+  it('icon', () => {
+    vm = createTest(Alert, {
+      title: 'icon',
+      type: 'success',
+      showIcon: true
+    }, true)
+    expect(vm.$el.querySelector('el-icon-success').tagName).to.equal('i')
+  })
+
   it('description', () => {
     vm = createTest(Alert, {
       title: 'Dorne',
@@ -32,6 +41,14 @@ describe('Alert', () => {
     }, true)
     expect(vm.$el.querySelector('.el-alert__description').textContent)
       .to.equal('Unbowed, Unbent, Unbroken')
+  })
+
+  it('center', () => {
+    vm = createTest(Alert, {
+      title: 'center',
+      center: true
+    }, true)
+    expect(vm.$el.classList.contains('is-center')).to.true
   })
 
   it('close', () => {

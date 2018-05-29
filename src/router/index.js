@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Alert from 'packages/alert/src/main'
+import Alert from '@/components/Alert'
 
 Vue.use(Router)
 
