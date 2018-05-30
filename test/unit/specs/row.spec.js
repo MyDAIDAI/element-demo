@@ -1,5 +1,5 @@
 import { createTest, destroyVM } from '../util'
-import Row from 'packages/Row'
+import Row from 'packages/row'
 
 describe('Row', () => {
   let vm

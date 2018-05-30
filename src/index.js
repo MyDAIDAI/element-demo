@@ -1,7 +1,11 @@
 import Alert from '../packages/alert/index.js'
+import Row from '../packages/row/index.js'
+import Col from '../packages/col/index.js'
 
 const components = [
-  Alert
+  Alert,
+  Row,
+  Col
 ]
 
 const install = function (Vue, opts = {}) {
@@ -19,5 +23,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 module.exports = {
   install,
-  Alert
+  Alert,
+  Row,
+  Col
 }

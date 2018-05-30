@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Alert from '@/components/Alert'
 import Row from '@/components/Row'
+import Col from '@/components/Col'
 
 Vue.use(Router)
 
@@ -16,6 +17,11 @@ export default new Router({
       path: '/row',
       name: Row,
       component: Row
+    },
+    {
+      path: '/col',
+      name: Col,
+      component: Col
     }
   ]
 })
