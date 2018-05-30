@@ -30,7 +30,7 @@ describe('Alert', () => {
       type: 'success',
       showIcon: true
     }, true)
-    expect(vm.$el.querySelector('el-icon-success').tagName).to.equal('i')
+    expect(vm.$el.querySelector('.el-icon-success').tagName).to.equal('I')
   })
 
   it('description', () => {

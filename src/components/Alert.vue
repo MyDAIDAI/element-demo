@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-alert title="测试alert" type="warning" :showIcon="true"></el-alert>
+    <el-alert title="测试alert" type="success" :showIcon="true"></el-alert>
   </div>
 </template>
 
@@ -15,7 +15,7 @@ export default {
     }
   },
   mounted () {
-    console.log(this)
+    console.log(this.$el.querySelector('.el-icon-success'))
   }
 }
 </script>
