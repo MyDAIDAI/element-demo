@@ -1,7 +1,6 @@
 <template>
-  <mian class="el-main"></mian>
+  <main class="el-main"></main>
 </template>
-
 <script>
 export default {
   name: 'ElMain',
