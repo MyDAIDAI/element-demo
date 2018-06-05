@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Alert from '@/components/Alert'
 import Row from '@/components/Row'
 import Col from '@/components/Col'
+import Footer from '@/components/Footer'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path: '/col',
       name: Col,
       component: Col
+    },
+    {
+      path: '/footer',
+      name: Footer,
+      component: Footer
     }
   ]
 })

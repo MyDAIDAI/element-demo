@@ -10,5 +10,5 @@ export default {
 </script>
 
 <style scoped lang="scss" rel="stylesheet/scss">
-
+  @import "../../theme-chalk/src/index";
 </style>

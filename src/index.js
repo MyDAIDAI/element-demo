@@ -1,11 +1,13 @@
 import Alert from '../packages/alert/index.js'
 import Row from '../packages/row/index.js'
 import Col from '../packages/col/index.js'
+import Footer from '../packages/Footer/index.js'
 
 const components = [
   Alert,
   Row,
-  Col
+  Col,
+  Footer
 ]
 
 const install = function (Vue, opts = {}) {
@@ -25,5 +27,6 @@ module.exports = {
   install,
   Alert,
   Row,
-  Col
+  Col,
+  Footer
 }

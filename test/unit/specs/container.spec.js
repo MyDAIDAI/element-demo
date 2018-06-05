@@ -1,8 +1,10 @@
-import { createTest, destroyVM } from '../util'
+import { createTest, createVue, destroyVM } from '../util'
 import Container from 'packages/container'
 import Header from 'packages/header'
 import Aside from 'packages/aside'
 import Main from 'packages/main'
+import Footer from 'packages/footer'
+
 describe('Container', () => {
   let vm
   afterEach(() => {
@@ -62,5 +64,24 @@ describe('Main', () => {
   it('create', function () {
     vm = createTest(Main, true)
     expect(vm.$el).to.exist
+  })
+})
+
+describe('Footer', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+  it('create', function () {
+    vm = createTest(Footer, true)
+    expect(vm.$el).to.exist
+  })
+  it('height', function () {
+    vm = createVue({
+      template: `
+        <el-footer height="100px"></el-footer>
+      `
+    }, true)
+    expect(vm.$children[0].$el.style.height).to.equal('100px')
   })
 })
