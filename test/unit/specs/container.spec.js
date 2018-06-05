@@ -1,6 +1,7 @@
 import { createTest, destroyVM } from '../util'
 import Container from 'packages/container'
 import Header from 'packages/header'
+import Aside from 'packages/aside'
 
 describe('Container', () => {
   let vm
@@ -33,5 +34,22 @@ describe('Header', () => {
       height: '100px'
     }, true)
     expect(vm.$el.style.height).to.equal('100px')
+  })
+})
+
+describe('Aside', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+  it('create', function () {
+    vm = createTest(Aside, true)
+    expect(vm.$el).to.exit
+  })
+  it('width', function () {
+    vm = createTest(Aside, {
+      width: '200px'
+    }, true)
+    expect(vm.$el.style.width).to.equal('200px')
   })
 })
