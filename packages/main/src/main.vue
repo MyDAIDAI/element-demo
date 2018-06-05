@@ -1,0 +1,14 @@
+<template>
+  <mian class="el-main"></mian>
+</template>
+
+<script>
+export default {
+  name: 'ElMain',
+  componentName: 'ElMain'
+}
+</script>
+
+<style scoped lang="scss" rel="stylesheet/scss">
+
+</style>

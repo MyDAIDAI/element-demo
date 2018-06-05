@@ -2,7 +2,7 @@ import { createTest, destroyVM } from '../util'
 import Container from 'packages/container'
 import Header from 'packages/header'
 import Aside from 'packages/aside'
-
+import Main from 'packages/main'
 describe('Container', () => {
   let vm
   afterEach(() => {
@@ -44,12 +44,23 @@ describe('Aside', () => {
   })
   it('create', function () {
     vm = createTest(Aside, true)
-    expect(vm.$el).to.exit
+    expect(vm.$el).to.exist
   })
   it('width', function () {
     vm = createTest(Aside, {
       width: '200px'
     }, true)
     expect(vm.$el.style.width).to.equal('200px')
+  })
+})
+
+describe('Main', () => {
+  let vm
+  afterEach(() => {
+    destroyVM(vm)
+  })
+  it('create', function () {
+    vm = createTest(Main, true)
+    expect(vm.$el).to.exist
   })
 })
