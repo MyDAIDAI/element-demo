@@ -3,14 +3,14 @@
     class="el-button"
     :class="[
     type ? 'el-button--' + type : '',
-    size ? 'el-button--' + size : '',
+    buttonSize ? 'el-button--' + buttonSize : '',
     {
       'is-plain': plain,
       'is-round': round,
       'is-circle': circle,
-      'is-disabled': disabled
+      'is-disabled': buttonDisabled
     }]"
-    :disabled="disabled"
+    :disabled="buttonDisabled"
     :autofocus="autofocus"
     :type="nativeType"
     @click="handleClick"
@@ -21,10 +21,17 @@
 </template>
 
 <script>
-// TODO inject
 export default {
   name: 'ElButton',
   componentName: 'ElButton',
+  inject: {
+    elForm: {
+      default: ''
+    },
+    elFormItem: {
+      default: ''
+    }
+  },
   props: {
     type: {
       type: String,
@@ -50,6 +57,15 @@ export default {
     return {}
   },
   computed: {
+    _elFormItemSize () {
+      return (this.elFormItem || {}).elFormItemSize;
+    },
+    buttonSize () {
+      return this.size || this._elFormItemSize || (this.$ELEMENT || {}).size
+    },
+    buttonDisabled () {
+      return this.disabled || (this.elForm || {}).disabled
+    }
   },
   methods: {
     handleClick (evt) {
