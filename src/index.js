@@ -1,13 +1,15 @@
 import Alert from '../packages/alert/index.js'
 import Row from '../packages/row/index.js'
 import Col from '../packages/col/index.js'
-import Footer from '../packages/Footer/index.js'
+import Footer from '../packages/footer/index.js'
+import Radio from '../packages/radio/index.js'
 
 const components = [
   Alert,
   Row,
   Col,
-  Footer
+  Footer,
+  Radio
 ]
 
 const install = function (Vue, opts = {}) {
@@ -28,5 +30,6 @@ module.exports = {
   Alert,
   Row,
   Col,
-  Footer
+  Footer,
+  Radio
 }
