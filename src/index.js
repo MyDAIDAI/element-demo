@@ -11,7 +11,7 @@ const components = [
   Footer,
   Radio
 ]
-
+// 所有组件全局注册
 const install = function (Vue, opts = {}) {
   components.map(component => {
     Vue.component(component.name, component)

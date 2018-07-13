@@ -81,7 +81,7 @@ export default {
         return this.isGroup ? this._radioGroup.value : this.value
       },
       set (val) {
-        // radio的值发生改变就触发input事件，将外部组件v-model的值进行更新
+        // 根据isGroup的值触发不同的input事件
         if (this.isGroup) {
           this.dispatch('ElRadioGroup', 'input', val)
         } else {
@@ -93,6 +93,7 @@ export default {
       return (this.elFormItem || {}).size
     },
     radioSize () {
+      // 根据优先级获取其size值
       const temRadioSize = this.size || this._elFormItemSize || (this.$ELEMENT || {}).size
       return this.isGroup
         ? this._radioGroup.radioGroupSize || temRadioSize
