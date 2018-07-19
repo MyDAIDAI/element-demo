@@ -71,10 +71,19 @@ export default {
     border: Boolean,
     size: String
   },
+  inject: {
+    elForm: {
+      default: ''
+    },
+    elFormItem: {
+      default: ''
+    }
+  },
   data () {
     return {
       focus: false,
-      selfModel: false
+      selfModel: false,
+      isLimitExceeded: false
     }
   },
   computed: {
@@ -93,7 +102,7 @@ export default {
     store () {
       return this._checkboxGroup ? this._checkboxGroup.value : this.value
     },
-    isCheck () {
+    isChecked () {
       if ({}.toString.call(this.model) === '[object Boolean]') {
         return this.model
       } else if (Array.isArray(this.model)) {
@@ -107,9 +116,26 @@ export default {
         return this.isGroup ? this.store : this.value !== undefined ? this.value : this.selfModel
       },
       set (val) {
-
+        if (this.isGroup) {
+          this.isLimitExceeded = false
+          (this._checkboxGroup.min !== undefined &&
+            val.length < this._checkboxGroup.min &&
+            (this.isLimitExceeded = true))
+          (this._checkboxGroup.max !== undefined &&
+            val.length > this._checkboxGroup.max &&
+            (this.isLimitExceeded = true))
+          this.isLimitExceeded === false && this.dispatch('ElCheckboxGroup', 'input', val)
+        } else {
+          this.$emit('input', val)
+          this.selfModel = val
+        }
       }
-    }
+    },
+    isDisabled () {
+      return this.isGroup
+        ? this._checkboxGroup.disabled || this.disabled || (this.elForm || {}).disabled
+        : this.disabled || (this.elForm || {}).disabled
+    },
   }
 }
 </script>
